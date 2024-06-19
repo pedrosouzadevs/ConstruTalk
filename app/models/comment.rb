@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  validate :content, presence: true
-  validate :user_id, presence: true
-  validate :post_id, presence: true
+  validates :content, presence: true
+  validates :user_id, presence: true
+  validates :post_id, presence: true
 end
