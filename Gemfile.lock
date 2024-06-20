@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/heartcombo/simple_form.git
+  revision: d3a594920a14a692836392b5a7c0cd4708e25cb3
+  specs:
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -108,6 +116,8 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
+    faker (3.4.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -123,6 +133,18 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -241,6 +263,18 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
+    tailwindcss-rails (2.6.1)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-aarch64-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-arm-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-arm64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-x86_64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-x86_64-linux)
+      railties (>= 7.0.0)
     thor (1.3.1)
     timeout (0.4.1)
     turbo-rails (2.0.5)
@@ -278,15 +312,19 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  faker
   importmap-rails
   jbuilder
+  kaminari
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
   redis (>= 4.0.1)
   selenium-webdriver
+  simple_form!
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  tailwindcss-rails (~> 2.6)
   turbo-rails
   tzinfo-data
   web-console
