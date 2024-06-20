@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+  get 'my_posts', to: 'posts#my_posts'
   resources :posts do
     resources :comments, only: [:create]
   end
