@@ -1,2 +1,30 @@
-<h1>Hello</h1>
-<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+<div class="flex items-center justify-center">
+  <div class="flex w-2/3 min-h-full flex-col justify-center mx-6 my-8 lg:mx-8 shadow-md sm:rounded-lg">
+    <table class="divide-y  divide-gray-200 text-sm rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="bg-gray-50 dark:bg-gray-700">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Post</th>
+          <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <%= link_to post_path(post.id) do %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 max-w-80">
+                  <h3 class="px-6 py-3 text-center font-extrabold text-gray-800 break-all dark:text-white"><%= truncate(post.title, length:100) %></h3>
+                  <p class="px-6 py-3 text-left font-small break-all text-gray-400 max-w-1/4"><%= truncate(post.content, length: 175) %></p>
+                </th>
+                <td class="px-6 py-4 text-center break-word">
+                    on <%= post.created_at.strftime("%B %d, %Y") %>
+                </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex items-center justify-center">
+  <%= paginate @posts%>
+</div>
