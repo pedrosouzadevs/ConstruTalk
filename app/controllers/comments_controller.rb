@@ -4,7 +4,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to @post
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to post_path(@post), notice:  'Comment was successfully created.'
+    else
+      redirect_to post_path(@post), alert: 'Error creating comment.'
+    end
   end
 
   private
