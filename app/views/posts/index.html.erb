@@ -5,6 +5,7 @@
         <tr>
           <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Post</th>
           <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+          <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,11 @@
                 </th>
                 <td class="px-6 py-4 text-center break-word">
                     on <%= post.created_at.strftime("%B %d, %Y") %>
+                </td>
+                <td>
+                  <%= link_to post_path(post.id) do %>
+                    <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 "/></svg>
+                  <% end %>
                 </td>
             </tr>
           <% end %>

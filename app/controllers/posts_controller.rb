@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def my_posts
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: current_user.id).order(updated_at: :desc).page(params[:page])
   end
 
   def show
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: 'Post was successfully updated.'
     else
       render 'edit',  status: :unprocessable_entity
     end
