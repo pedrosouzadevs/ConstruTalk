@@ -12,7 +12,10 @@
       </thead>
       <tbody>
         <% @posts.each do |post| %>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              data-controller="posts"
+              data-posts-url-value="<%=post_path(post.id)%>"
+              data-action="click->posts#redirect mouseenter->posts#setCursorPointer mouseleave->posts#setCursorDefault">
               <th scope="row" class="px-6 py-4 max-w-80">
                 <h3 class="px-6 py-3 text-center font-extrabold text-gray-800 break-all dark:text-white"><%= truncate(post.title, length:100) %></h3>
                 <p class="px-6 py-3 text-left font-small break-all text-gray-400 max-w-1/4"><%= truncate(post.content, length: 175) %></p>

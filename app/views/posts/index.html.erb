@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center">
+<div class="flex items-center justify-center" >
   <div class="flex w-2/3 min-h-full flex-col justify-center mx-6 my-8 lg:mx-8 shadow-md sm:rounded-lg">
     <table class="divide-y  divide-gray-200 text-sm rtl:text-right text-gray-500 dark:text-gray-400">
       <thead class="bg-gray-50 dark:bg-gray-700">
@@ -8,24 +8,29 @@
           <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         <% @posts.each do |post| %>
-          <%= link_to post_path(post.id) do %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 max-w-80">
-                  <h3 class="px-6 py-3 text-center font-extrabold text-gray-800 break-all dark:text-white"><%= truncate(post.title, length:100) %></h3>
-                  <p class="px-6 py-3 text-left font-small break-all text-gray-400 max-w-1/4"><%= truncate(post.content, length: 175) %></p>
-                </th>
-                <td class="px-6 py-4 text-center break-word">
-                    on <%= post.created_at.strftime("%B %d, %Y") %>
-                </td>
-                <td>
-                  <%= link_to post_path(post.id) do %>
-                    <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 "/></svg>
-                  <% end %>
-                </td>
-            </tr>
-          <% end %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              data-controller="posts"
+              data-posts-url-value="<%=post_path(post.id)%>"
+              data-action="click->posts#redirect mouseenter->posts#setCursorPointer mouseleave->posts#setCursorDefault">
+            <th scope="row" class="px-6 py-4 max-w-80">
+              <h3 class="px-6 py-3 text-center font-extrabold text-gray-800 break-all dark:text-white">
+                <%= truncate(post.title, length:100) %>
+              </h3>
+              <p class="px-6 py-3 text-left font-small break-all text-gray-400 max-w-1/4">
+                <%= truncate(post.content, length: 175) %>
+              </p>
+            </th>
+            <td class="px-6 py-4 text-center break-word">
+                on <%= post.created_at.strftime("%B %d, %Y") %>
+            </td>
+            <td>
+              <%= link_to post_path(post.id) do %>
+                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 "/></svg>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
