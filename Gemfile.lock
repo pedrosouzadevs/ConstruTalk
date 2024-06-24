@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/heartcombo/simple_form.git
-  revision: d3a594920a14a692836392b5a7c0cd4708e25cb3
-  specs:
-    simple_form (5.3.1)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -116,8 +108,6 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
-    faker (3.4.1)
-      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -312,7 +302,6 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
-  faker
   importmap-rails
   jbuilder
   kaminari
@@ -320,7 +309,6 @@ DEPENDENCIES
   rails (~> 7.1.3, >= 7.1.3.2)
   redis (>= 4.0.1)
   selenium-webdriver
-  simple_form!
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
